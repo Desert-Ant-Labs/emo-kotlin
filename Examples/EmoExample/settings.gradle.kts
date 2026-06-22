@@ -10,14 +10,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://jitpack.io")   // Emo is published here via JitPack
     }
 }
 
 rootProject.name = "EmoExample"
-
-// Build against the local Emo library sources, mirroring how the iOS example
-// references the package at ../.. — `implementation("ai.desertant:emo")` is
-// substituted by this included build.
-includeBuild("../..")
 
 include(":app")

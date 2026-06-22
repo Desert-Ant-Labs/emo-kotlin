@@ -19,10 +19,10 @@ configuration, or from the command line:
 ./gradlew :app:installDebug
 ```
 
-The example builds the local library straight from source via a Gradle composite
-build (`includeBuild("../..")` in `settings.gradle.kts`), so it always reflects
-the current `emo-kotlin` checkout — the same way the iOS example references the
-local Swift package at `../..`.
+The example fetches the published library from JitPack
+(`implementation("com.github.Desert-Ant-Labs:emo-kotlin:0.1.0")`, with the
+`https://jitpack.io` repository added in `settings.gradle.kts`) — the same way a
+real consumer would depend on it.
 
 ## What it shows
 

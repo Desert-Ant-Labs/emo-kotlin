@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation("ai.desertant:emo")
+    implementation("com.github.Desert-Ant-Labs:emo-kotlin:0.1.0")
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.activity:activity-compose:1.9.3")
