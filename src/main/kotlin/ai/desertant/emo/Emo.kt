@@ -26,6 +26,7 @@ class EmoException(message: String) : Exception(message)
  * ```kotlin
  * val suggestions = Emo.suggestions("Pay my bills")
  * val emoji = Emo.suggestions("犬の散歩", limit = 1).firstOrNull()?.emoji // "🐕"
+ * val toned = Emo.suggestions("go for a run", limit = 1, skinTone = EmojiSkinTone.MEDIUM).firstOrNull()?.emoji // "🏃🏽"
  * ```
  */
 object Emo {
@@ -34,10 +35,11 @@ object Emo {
      *
      * @param text A short task, calendar entry, note, or message draft.
      * @param limit The maximum number of suggestions to return. Pass `1` for only the best emoji.
+     * @param skinTone Preferred skin tone for skin-tone-capable emoji. Defaults to [EmojiSkinTone.DEFAULT].
      * @return Up to [limit] suggestions. Empty or blank input returns an empty list.
      */
-    suspend fun suggestions(text: String, limit: Int = 3): List<EmoSuggestion> =
-        withContext(Dispatchers.Default) { model.suggestions(text, limit) }
+    suspend fun suggestions(text: String, limit: Int = 3, skinTone: EmojiSkinTone = EmojiSkinTone.DEFAULT): List<EmoSuggestion> =
+        withContext(Dispatchers.Default) { model.suggestions(text, limit, skinTone) }
 
     private val model: EmoModel by lazy {
         EmoModel(

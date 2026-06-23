@@ -35,4 +35,12 @@ class EmoTest {
     fun emptyInput() = runBlocking {
         assertTrue(Emo.suggestions("   ").isEmpty())
     }
+
+    @Test
+    fun skinTonePostprocessing() {
+        assertEquals("🏃🏽", "🏃".applyingSkinTone(EmojiSkinTone.MEDIUM))
+        assertEquals("🧑🏿‍🍳", "🧑‍🍳".applyingSkinTone(EmojiSkinTone.DARK))
+        assertEquals("✍🏻", "✍️".applyingSkinTone(EmojiSkinTone.LIGHT))
+        assertEquals("🐕", "🐕".applyingSkinTone(EmojiSkinTone.MEDIUM))
+    }
 }
