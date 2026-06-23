@@ -18,7 +18,7 @@ class EmoException(message: String) : Exception(message)
  * Predicts emojis for short task, calendar, note, or message text.
  *
  * Emo runs fully on-device using a small bundled model (~3.8 MB total) across
- * 22 languages, with no network access. The model is loaded once on first use.
+ * 23 languages, with no network access. The model is loaded once on first use.
  *
  * [suggestions] is a suspending function that runs the load and inference on a
  * background dispatcher, so it's safe to call from any coroutine.
