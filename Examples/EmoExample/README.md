@@ -20,7 +20,7 @@ configuration, or from the command line:
 ```
 
 The example fetches the published library from JitPack
-(`implementation("com.github.Desert-Ant-Labs:emo-kotlin:0.1.0")`, with the
+(`implementation("com.github.Desert-Ant-Labs:emo-kotlin:0.2.0")`, with the
 `https://jitpack.io` repository added in `settings.gradle.kts`) — the same way a
 real consumer would depend on it.
 
