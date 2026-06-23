@@ -19,7 +19,7 @@ val toned = Emo.suggestions("go for a run", limit = 1, skinTone = EmojiSkinTone.
 
 - Runs fully on-device — pure Kotlin, no native or network dependencies
 - Suggests from a data-driven vocabulary of ~300 task/calendar/message emojis
-- Supports 22 languages (incl. CJK, Arabic, Thai, Hindi, …)
+- Supports 23 languages (incl. CJK, Arabic, Thai, Hindi, …)
 - Bundled model + tokenizer are about 5.0 MB (4-bit palettized weights)
 - Prediction is well under 2 ms after the one-time model load
 - Runs on the JVM and Android 5.0+ (API 21)
