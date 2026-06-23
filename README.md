@@ -2,6 +2,7 @@ Emo is a small on-device Kotlin library that suggests emojis for short tasks, ca
 
 ```kotlin
 import ai.desertant.emo.Emo
+import ai.desertant.emo.EmojiSkinTone
 
 // suspend function — call from a coroutine
 val suggestions = Emo.suggestions("Pay my bills")
@@ -9,6 +10,9 @@ val suggestions = Emo.suggestions("Pay my bills")
 
 val emoji = Emo.suggestions("犬の散歩", limit = 1).firstOrNull()?.emoji
 // "🐕"
+
+val toned = Emo.suggestions("go for a run", limit = 1, skinTone = EmojiSkinTone.MEDIUM).firstOrNull()?.emoji
+// "🏃🏽"
 ```
 
 ## Features
@@ -78,7 +82,15 @@ any coroutine, including on the main thread's scope.
 
 ```kotlin
 object Emo {
-    suspend fun suggestions(text: String, limit: Int = 3): List<EmoSuggestion>
+    suspend fun suggestions(
+        text: String,
+        limit: Int = 3,
+        skinTone: EmojiSkinTone = EmojiSkinTone.DEFAULT,
+    ): List<EmoSuggestion>
+}
+
+enum class EmojiSkinTone {
+    DEFAULT, LIGHT, MEDIUM_LIGHT, MEDIUM, MEDIUM_DARK, DARK
 }
 
 data class EmoSuggestion(
@@ -87,7 +99,7 @@ data class EmoSuggestion(
 )
 ```
 
-Empty or blank input returns an empty list.
+Empty or blank input returns an empty list. `skinTone` post-processes skin-tone-capable emoji; the default is `DEFAULT` (no modifier).
 
 ## Model
 

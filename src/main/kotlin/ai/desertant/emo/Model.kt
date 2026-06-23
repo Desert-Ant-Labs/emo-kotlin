@@ -72,7 +72,7 @@ internal class EmoModel(weights: ByteArray, tokenizer: ByteArray, private val me
     private val w = parseWeights(weights)
     private val maxLen = 1024
 
-    fun suggestions(text: String, limit: Int): List<EmoSuggestion> {
+    fun suggestions(text: String, limit: Int, skinTone: EmojiSkinTone = EmojiSkinTone.DEFAULT): List<EmoSuggestion> {
         val trimmed = text.trim()
         if (trimmed.isEmpty()) return emptyList()
 
@@ -143,7 +143,7 @@ internal class EmoModel(weights: ByteArray, tokenizer: ByteArray, private val me
 
         val labels = meta.labels
         val order = (0 until n).sortedByDescending { logits[it] }
-        return order.take(maxOf(0, limit)).map { EmoSuggestion(labels[it], logits[it] / sum) }
+        return order.take(maxOf(0, limit)).map { EmoSuggestion(labels[it].applyingSkinTone(skinTone), logits[it] / sum) }
     }
 
     private fun gelu(x: Float): Float {
