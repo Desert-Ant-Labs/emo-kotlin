@@ -41,13 +41,13 @@ dependencyResolutionManagement {
 }
 ```
 
-Then add the dependency, replacing `0.1.0` with the
+Then add the dependency, replacing `0.2.0` with the
 [latest release tag](https://github.com/Desert-Ant-Labs/emo-kotlin/releases):
 
 ```kotlin
 // build.gradle.kts
 dependencies {
-    implementation("com.github.Desert-Ant-Labs:emo-kotlin:0.1.0")
+    implementation("com.github.Desert-Ant-Labs:emo-kotlin:0.2.0")
 }
 ```
 
